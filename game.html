@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provocarea Sortării - Joc Interactiv</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <span class="app-title" id="appTitle">Provocarea Sortării</span>
+            <div class="current-algorithm" id="algorithmTitle">
+                Începe un joc nou
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Game Area -->
+    <div class="main-area">
+        <div class="status-message" id="statusMessage">
+            Apasă "Start Joc" pentru a începe sortarea!
+        </div>
+
+        <div class="numbers-container" id="numbersContainer">
+            <!-- Cardurile cu numere vor fi generate aici -->
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-label">
+                <span>Progres</span>
+                <span id="progressText">0 / 0</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button class="btn btn-primary" id="startBtn">
+            Start Joc
+        </button>
+
+        <button class="btn btn-secondary" id="checkBtn" disabled>
+            Verifică Soluția
+        </button>
+
+        <button class="btn btn-danger" id="resetBtn" disabled>
+            Resetează
+        </button>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Selectează Metoda</div>
+            <div class="method-selector">
+                <button class="method-btn" data-method="bubble">Metoda Bulelor</button>
+                <button class="method-btn" data-method="selection">Metoda Selecției</button>
+                <button class="method-btn" data-method="insertion">Metoda Inserției</button>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Descriere Algoritm</div>
+            <div class="algorithm-description" id="algorithmDesc">
+                Selectează un algoritm pentru a vedea descrierea.
+            </div>
+            <ul class="algorithm-description" id="algorithmRules" style="margin-top: 10px; padding-left: 18px; font-size: 13px; color: #6e6e73;"></ul>
+        </div>
+
+        <div class="sidebar-section" id="expectedMove" style="display: none;">
+            <div class="expected-move">
+                <div class="expected-move-title">Următoarea Mutare</div>
+                <div class="expected-move-text" id="expectedMoveText"></div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Statistici</div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Mutări Totale:</span>
+                    <span class="stat-value" id="moveCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Mutări Corecte:</span>
+                    <span class="stat-value" id="correctMoves">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Eficiență:</span>
+                    <span class="stat-value" id="efficiency">100%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html" class="btn btn-outline">Înapoi la Meniu</a>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <div class="success-icon">✓</div>
+        <h2>Felicitări!</h2>
+        <p>Ai sortat cu succes vectorul folosind</p>
+        <p><strong id="modalAlgorithm">Metoda Bulelor</strong></p>
+
+        <div class="modal-stats">
+            <div class="modal-stat">
+                <div class="modal-stat-value" id="modalMoves">0</div>
+                <div class="modal-stat-label">Mutări</div>
+            </div>
+            <div class="modal-stat">
+                <div class="modal-stat-value" id="modalEfficiency">100%</div>
+                <div class="modal-stat-label">Eficiență</div>
+            </div>
+            <div class="modal-stat">
+                <div class="modal-stat-value" id="modalTime">0s</div>
+                <div class="modal-stat-label">Timp</div>
+            </div>
+        </div>
+
+        <div class="modal-buttons">
+            <button class="btn btn-outline" id="modalClose">Închide</button>
+            <button class="btn btn-primary" id="playAgainBtn">Joacă Din Nou</button>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="main.js"></script>
+
+</body>
+</html>
